@@ -1,0 +1,39 @@
+<section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Чому Вам варто завітати <span>до нашого Ресторану</span></h2>
+          <p>Фантазія в нас не дуже, тому всього три причини</p>
+        </div>
+
+        <div class="row">
+          {% for pr in why_us %}
+              <div class="col-lg-4">
+                <div class="box">
+                  <span>{{ pr.pk }}</span>
+                  <h4>{{ pr.title}}</h4>
+                  <p>{{ pr.desc}}</p>
+                </div>
+              </div>
+          {% endfor %}
+
+{#          <div class="col-lg-4 mt-4 mt-lg-0">#}
+{#            <div class="box">#}
+{#              <span>02</span>#}
+{#              <h4>Repellat Nihil</h4>#}
+{#              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>#}
+{#            </div>#}
+{#          </div>#}
+{##}
+{#          <div class="col-lg-4 mt-4 mt-lg-0">#}
+{#            <div class="box">#}
+{#              <span>03</span>#}
+{#              <h4> Ad ad velit qui</h4>#}
+{#              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>#}
+{#            </div>#}
+{#          </div>#}
+
+        </div>
+
+      </div>
+    </section>
