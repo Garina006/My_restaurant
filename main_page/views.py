@@ -11,9 +11,12 @@ def main_view(request):
     about = Presentation.objects.filter(is_visible=True, about=True)
     why_us = Presentation.objects.filter(is_visible=True, why_us=True)
     events = Events.objects.filter(is_visible=True)
-    photos = Gallery.objects.all().order_by('?')
+    photos = Gallery.objects.all()
+    photos = random.sample(list(photos), 4)
     greetings = Presentation.objects.filter(is_visible=True, greetings=True)
     chefs = Chefs.objects.filter(is_visible=True)
+    testimonials = Testimonials.objects.filter(is_visible=True)
+    info = Information.objects.all()
 
 
     return render(request, 'base.html', context={
@@ -26,5 +29,7 @@ def main_view(request):
         'photos': photos,
         'greetings': greetings,
         'chefs': chefs,
+        'testimonials': testimonials,
+        'info': info,
 
     })

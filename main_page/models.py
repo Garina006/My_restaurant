@@ -147,14 +147,14 @@ class Testimonials(models.Model):
 class Information(models.Model):
     street = models.CharField('Вулиця та будинок', max_length=20, db_index=True)
     city = models.CharField('Місто', max_length=20)
-    start_day = models.DateField('Працюємо з (день тижня)', blank=True)
-    end_day = models.DateField('Працюємо по (день тижня)', blank=True)
+    start_day = models.CharField('Працюємо з (день тижня)', max_length=20, blank=True)
+    end_day = models.CharField('Працюємо по (день тижня)', max_length=20, blank=True)
     start_time = models.TimeField('Відкриваємось о (час)', blank=True)
     close_time = models.TimeField('Закриваємось о (час)', blank=True)
-    email_1 = models.EmailField('Імейл_1', blank=True)
-    email_2 = models.EmailField('Імейл_2')
-    phone_1 = models.CharField('Телефон_1', max_length=13, blank=True)
-    phone_2 = models.CharField('Телефон_2', max_length=13)
+    email_1 = models.EmailField('Імейл_1', default='')
+    email_2 = models.EmailField('Імейл_2', blank=True, default='')
+    phone_1 = models.CharField('Телефон_1', max_length=13, default='')
+    phone_2 = models.CharField('Телефон_2', max_length=13, blank=True, default='')
 
     class Meta:
         verbose_name = 'Інформація про ресторан'

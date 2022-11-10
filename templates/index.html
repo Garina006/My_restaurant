@@ -41,8 +41,10 @@
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+    {% for item in info %}
+      <i class="bi bi-phone d-flex align-items-center"><span>{{ item.phone_1}}</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>{{ item.start_day }}-{{ item.end_day }}: {{ item.start_time}} - {{ item.close_time}}</span></i>
+    {% endfor %}
     </div>
   </section>
 
@@ -58,13 +60,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
-          <li><a class="nav-link scrollto" href="#events">Events</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Головна сторінка</a></li>
+          <li><a class="nav-link scrollto" href="#about">Про ресторан</a></li>
+          <li><a class="nav-link scrollto" href="#menu">Меню</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Особливі страви</a></li>
+          <li><a class="nav-link scrollto" href="#events">Події</a></li>
+          <li><a class="nav-link scrollto" href="#chefs">Кухарі</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">Галерея</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -82,12 +84,12 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Контакти</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
+      <a href="#book-a-table" class="book-a-table-btn scrollto">Забронювати столик</a>
 
     </div>
   </header><!-- End Header -->
@@ -122,8 +124,8 @@
                     <h2 class="animate__animated animate__fadeInDown">{{ item.title}}</h2>
                     <p class="animate__animated animate__fadeInUp">{{ item.desc}}</p>
                     <div>
-                      <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                      <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                      <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Меню</a>
+                      <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Забронювати столик</a>
                     </div>
                   </div>
                 </div>
@@ -155,7 +157,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Delicious</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>Найкращий ресторан України</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
