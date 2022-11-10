@@ -40,7 +40,7 @@ class Dish(models.Model):
     class Meta:
         verbose_name = 'Страва'
         verbose_name_plural = 'Страви'
-        ordering = ['position']
+        ordering = ['category', 'position']
 
 
 class Presentation(models.Model):
@@ -56,6 +56,8 @@ class Presentation(models.Model):
     video = models.URLField('Завантажити відео', blank=True)
     is_visible = models.BooleanField('Відображати', default=True)
     why_us = models.BooleanField('Розділ "Чому ми"', default=True)
+    about = models.BooleanField('Розділ "Про нас"', default=False)
+    greetings = models.BooleanField('Розділ "Вітання від ресторану"', default=False)
 
     def __str__(self):
         return self.title
@@ -102,4 +104,59 @@ class Events(models.Model):
         verbose_name_plural = 'Події'
 
 
+class Chefs(models.Model):
+
+    def get_file_name(self, file_name: str):
+        ext = file_name.strip().split()[-1]
+        f'{uuid.uuid4()}.{ext}'
+        return os.path.join('images/chefs', f'{uuid.uuid4()}.{ext}')
+
+    name = models.CharField("Ім'я", max_length=20, db_index=True)
+    surname = models.CharField("Призвище", max_length=20)
+    job_title = models.CharField("Посада", max_length=20)
+    photo = models.ImageField('Завантажити фото', upload_to=get_file_name)
+    is_visible = models.BooleanField('Відображати', default=True)
+
+    def __str__(self):
+        return f'{self.job_title} {self.surname} {self.name[0]}.'
+
+    class Meta:
+        verbose_name = 'Кухар'
+        verbose_name_plural = 'Кухарі'
+
+
+class Testimonials(models.Model):
+
+    def get_file_name(self, file_name: str):
+        ext = file_name.strip().split()[-1]
+        f'{uuid.uuid4()}.{ext}'
+        return os.path.join('images/testimonials', f'{uuid.uuid4()}.{ext}')
+
+    name = models.CharField("Ім'я", max_length=20, db_index=True)
+    surname = models.CharField("Призвище", max_length=20)
+    profession = models.CharField("Професія", max_length=30)
+    photo = models.ImageField('Завантажити фото', upload_to=get_file_name)
+    text = models.TextField('Відгук', max_length=500, blank=True)
+    is_visible = models.BooleanField('Відображати', default=True)
+
+    class Meta:
+        verbose_name = 'Відгук'
+        verbose_name_plural = 'Відгуки'
+
+
+class Information(models.Model):
+    street = models.CharField('Вулиця та будинок', max_length=20, db_index=True)
+    city = models.CharField('Місто', max_length=20)
+    start_day = models.DateField('Працюємо з (день тижня)', blank=True)
+    end_day = models.DateField('Працюємо по (день тижня)', blank=True)
+    start_time = models.TimeField('Відкриваємось о (час)', blank=True)
+    close_time = models.TimeField('Закриваємось о (час)', blank=True)
+    email_1 = models.EmailField('Імейл_1', blank=True)
+    email_2 = models.EmailField('Імейл_2')
+    phone_1 = models.CharField('Телефон_1', max_length=13, blank=True)
+    phone_2 = models.CharField('Телефон_2', max_length=13)
+
+    class Meta:
+        verbose_name = 'Інформація про ресторан'
+        verbose_name_plural = 'Інформація про ресторан'
 
