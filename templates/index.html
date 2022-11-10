@@ -100,49 +100,36 @@
         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
-
+        {% for item in greetings %}
+            {% if forloop.first %}
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown"><span>Ресторан</span> Delicious</h2>
-                <p class="animate__animated animate__fadeInUp">Найкращий уявний ресторан в нашому уявному світі</p>
-                <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+              <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
+                <div class="carousel-container">
+                  <div class="carousel-content">
+                    <h2 class="animate__animated animate__fadeInDown">{{ item.title}}</h2>
+                    <p class="animate__animated animate__fadeInUp">{{ item.desc}}</p>
+                    <div>
+                      <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                      <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Гастрономічна насолода</h2>
-                <p class="animate__animated animate__fadeInUp">Потрапивши до нашого ресторану, ви відчуєте неймовірні смаки вишуканих страв та зможете насолодитися чарівною атмосферою</p>
-                <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+            {% else %}
+                <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
+                <div class="carousel-container">
+                  <div class="carousel-content">
+                    <h2 class="animate__animated animate__fadeInDown">{{ item.title}}</h2>
+                    <p class="animate__animated animate__fadeInUp">{{ item.desc}}</p>
+                    <div>
+                      <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                      <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Час, якого не шкода</h2>
-                <p class="animate__animated animate__fadeInUp">Наші чудові тематичні вечірки стануть вашим найулюбленішим видом відпочинку</p>
-                <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+            {% endif %}
+        {% endfor %}
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
