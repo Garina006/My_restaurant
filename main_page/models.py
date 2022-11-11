@@ -51,7 +51,7 @@ class Presentation(models.Model):
         return os.path.join('images/presentation', f'{uuid.uuid4()}.{ext}')
 
     title = models.CharField('Назва презентації', max_length=50, unique=True, db_index=True)
-    desc = models.TextField('Опис', max_length=500, blank=True)
+    desc = models.TextField('Опис', max_length=1000, blank=True)
     photo = models.ImageField('Завантажити фото', upload_to=get_file_name, blank=True)
     video = models.URLField('Завантажити відео', blank=True)
     is_visible = models.BooleanField('Відображати', default=True)
@@ -90,7 +90,7 @@ class Events(models.Model):
         return os.path.join('images/events', f'{uuid.uuid4()}.{ext}')
 
     title = models.CharField('Назва події', max_length=50, unique=True, db_index=True)
-    desc = models.TextField('Опис події', max_length=500, blank=True)
+    desc = models.TextField('Опис події', max_length=1000, blank=True)
     price = models.DecimalField('Вартість', max_digits=8, decimal_places=2)
     photo = models.ImageField('Завантажити фото', upload_to=get_file_name)
     is_visible = models.BooleanField('Відображати', default=True)

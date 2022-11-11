@@ -12,7 +12,7 @@ def main_view(request):
     why_us = Presentation.objects.filter(is_visible=True, why_us=True)
     events = Events.objects.filter(is_visible=True)
     photos = Gallery.objects.all()
-    photos = random.sample(list(photos), 4)
+    photos = random.sample(list(photos), 8)
     greetings = Presentation.objects.filter(is_visible=True, greetings=True)
     chefs = Chefs.objects.filter(is_visible=True)
     testimonials = Testimonials.objects.filter(is_visible=True)

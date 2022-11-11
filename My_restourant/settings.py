@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_page.apps.MainPageConfig',
     'account.apps.AccountConfig',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
