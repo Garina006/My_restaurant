@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .models import Category, Dish, Presentation, Events, Gallery, Information, Testimonials, Chefs
+from .forms import UserReservationForm
 import random
 
 # Create your views here.
 def main_view(request):
+
+    form_reserve = UserReservationForm()
 
     dishes = Dish.objects.filter(is_visible=True)
     categories = Category.objects.filter(is_visible=True)
@@ -31,5 +34,6 @@ def main_view(request):
         'chefs': chefs,
         'testimonials': testimonials,
         'info': info,
+        'form_reserve': form_reserve,
 
     })
