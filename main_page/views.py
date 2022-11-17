@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Dish, Presentation, Events, Gallery, Information, Testimonials, Chefs
 from .forms import UserReservationForm
 import random
@@ -6,7 +6,12 @@ import random
 # Create your views here.
 def main_view(request):
 
-    form_reserve = UserReservationForm()
+    form_reserve = UserReservationForm(request.POST or None)
+
+    if form_reserve.is_valid():
+        form_reserve.save()
+        return redirect('/')
+
 
     dishes = Dish.objects.filter(is_visible=True)
     categories = Category.objects.filter(is_visible=True)
