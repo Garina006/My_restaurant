@@ -8,7 +8,8 @@ def main_view(request):
 
     form_contact = UserContactForm(request.POST or None)
     if form_contact.is_valid():
-        pass
+        form_contact.save()
+        return redirect('/')
 
     form_reserve = UserReservationForm(request.POST or None)
 
