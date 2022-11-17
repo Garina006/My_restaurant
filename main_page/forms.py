@@ -1,5 +1,5 @@
 from django import forms
-from manager.models import UserReservation
+from manager.models import UserReservation, UserContact
 
 
 class UserReservationForm(forms.ModelForm):
@@ -74,3 +74,41 @@ class UserReservationForm(forms.ModelForm):
     class Meta:
         model = UserReservation
         fields = ('name', 'persons', 'phone', 'message', 'email', 'date_reserve', 'time_reserve')
+
+
+class UserContactForm(forms.ModelForm):
+    name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={
+                            'type': 'text',
+                            'name': 'name',
+                            'class': 'form-control',
+                            'id': 'name',
+                            'placeholder': "Введіть ваше ім'я",
+                            'required': '',
+                            }))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+                            'type': 'email',
+                            'class': 'form-control',
+                            'name': 'email',
+                            'id': 'email',
+                            'placeholder': 'Введіть ваш імейл',
+                            'required': '',
+                            }))
+    subject = forms.CharField(max_length=50, widget=forms.TextInput(attrs={
+                            'type': 'text',
+                            'class': 'form-control',
+                            'name': 'subject',
+                            'id': 'subject',
+                            'placeholder': 'Тема повідомлення',
+                            'required': '',
+                            }))
+    message = forms.CharField(max_length=500, widget=forms.Textarea(attrs={
+                            'class': 'form-control',
+                            'name': 'message',
+                            'rows': '5',
+                            'placeholder': 'Message',
+                            'required': '',
+                            }))
+
+    class Meta:
+        model = UserContact
+        fields = ('name', 'email', 'subject', 'message')
