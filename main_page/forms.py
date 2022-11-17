@@ -105,7 +105,7 @@ class UserContactForm(forms.ModelForm):
                             'class': 'form-control',
                             'name': 'message',
                             'rows': '5',
-                            'placeholder': 'Message',
+                            'placeholder': 'Введіть ваше повідомлення',
                             'required': '',
                             }))
 

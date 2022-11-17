@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import UserReservation
+from .models import UserReservation, UserContact
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 

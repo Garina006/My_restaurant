@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import Category, Dish, Presentation, Events, Gallery, Information, Testimonials, Chefs
-from .forms import UserReservationForm
+from .forms import UserReservationForm, UserContactForm
 import random
 
 # Create your views here.
 def main_view(request):
+
+    form_contact = UserContactForm(request.POST or None)
+    if form_contact.is_valid():
+        pass
 
     form_reserve = UserReservationForm(request.POST or None)
 
@@ -40,5 +44,7 @@ def main_view(request):
         'testimonials': testimonials,
         'info': info,
         'form_reserve': form_reserve,
+        'form_contact': form_contact,
+
 
     })

@@ -7,4 +7,5 @@ urlpatterns = [
     path('', reservation_list, name='reservation_list'),
     path('update/<int:pk>/', reservation_close, name='reservation_close')
 
+
 ]
