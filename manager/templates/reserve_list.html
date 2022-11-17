@@ -8,14 +8,14 @@
                 {% for item in reserve_list %}
                     <div class="row">
                         <div class="col-md-3">
-{#                            <a href="{% url 'manager:reservation_close' pk=item.pk %}">#}
-{#                                <button type="button" class="btn btn-primary">Close request</button>#}
-{#                            </a>#}
+                            <a href="{% url 'manager:reservation_close' pk=item.pk %}">
+                                <button type="button" class="btn btn-primary">Закрити замовлення</button>
+                            </a>
                         </div>
                         <div class="col-md-3">{{ item.name }}</div>
-                        <div class="col-md-3">{{ item.phone }}</div>
-                        <div class="col-md-3">{{ item.date|date:'d-m-Y' }}</div>
-                        <div class="col-md-3">{{ item.time_reserve }}</div>
+                        <div class="col-md-3">{{ item.phone }} {{ item.email }}</div>
+                        <div class="col-md-2">{{ item.date_reserve|date:'d-m-Y' }} {{ item.time_reserve }} Кількість гостей
+                            {{ item.persons }}</div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
