@@ -28,7 +28,8 @@ urlpatterns = [
     path('registration/', registration_view, name='registration'),
     path('logout/', logout_view, name='logout'),
 
-    path('', include('main_page.urls'))
+    path('', include('main_page.urls')),
+    path('manager/', include('manager.urls'), name='manager'),
 ]
 
 if settings.DEBUG:
